@@ -1,0 +1,187 @@
+<header class="fixed top-0 left-0 right-0 z-50 bg-transparent">
+  <nav class="h-16 px-4 md:px-10 flex items-center justify-between">
+    <div class="w-24"></div>
+    <div class="font-serifDisplay uppercase tracking-[0.4em] text-sm md:text-base">
+      BESPEAK
+    </div>
+    <button
+      type="button"
+      class="line-thin border border-white text-[10px] md:text-xs tracking-[0.2em] uppercase px-4 py-2 rounded-none bg-transparent text-white"
+    >
+      Log In
+    </button>
+  </nav>
+</header>
+
+<main>
+  <section class="relative h-[90vh] reveal" appReveal>
+    <img
+      src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=1800&q=80"
+      alt="Premium black fashion"
+      class="absolute inset-0 h-full w-full object-cover opacity-65"
+    />
+    <div class="absolute inset-0 bg-black/55"></div>
+    <div
+      class="relative h-full px-6 md:px-14 flex flex-col justify-end pb-16 md:pb-24"
+    >
+      <h1
+        class="font-serifDisplay uppercase tracking-[0.45em] text-4xl md:text-7xl"
+      >
+        BESPEAK
+      </h1>
+      <p
+        class="mt-6 max-w-2xl text-sm md:text-base tracking-[0.08em] leading-relaxed text-white/90 font-sansUltra font-extralight"
+      >
+        {{ t.heroLead }}
+      </p>
+    </div>
+  </section>
+
+  <section
+    class="h-[70vh] px-6 md:px-14 flex items-center reveal"
+    appReveal
+  >
+    <div class="max-w-4xl">
+      <h2
+        class="font-serifDisplay uppercase tracking-[0.35em] text-2xl md:text-4xl"
+      >
+        {{ t.advantagesTitle }}
+      </h2>
+      <p
+        class="mt-8 text-sm md:text-base tracking-[0.1em] text-white/85 leading-loose font-sansUltra font-extralight"
+      >
+        {{ t.advantagesBody }}
+      </p>
+    </div>
+  </section>
+
+  <section class="min-h-[60vh] px-6 md:px-14 py-20 md:py-28 reveal" appReveal>
+    <p
+      class="max-w-5xl font-serifDisplay uppercase tracking-[0.3em] leading-relaxed text-xl md:text-4xl"
+    >
+      {{ t.audienceBlock }}
+    </p>
+  </section>
+
+  <section class="h-auto md:h-screen px-4 md:px-10 py-8 md:py-10 reveal" appReveal>
+    <div class="h-full grid grid-cols-1 md:grid-cols-10 gap-8">
+      <aside
+        class="md:col-span-3 md:sticky md:top-24 md:h-[calc(100vh-7rem)] flex flex-col justify-between"
+      >
+        <div>
+          <h3
+            class="font-serifDisplay uppercase tracking-[0.3em] text-sm md:text-base"
+          >
+            MVP WINDOW
+          </h3>
+          <div class="mt-8 space-y-4 pr-4">
+            @for (m of messages; track $index) {
+              <p
+                class="text-xs md:text-sm tracking-[0.12em] uppercase leading-relaxed border-b border-white/20 line-thin pb-3 font-sansUltra font-extralight"
+              >
+                @if (m.role === 'user') {
+                  <span>{{ t.userPrefix }}</span>
+                }
+                {{ m.text }}
+              </p>
+            }
+          </div>
+        </div>
+        <form class="mt-8" (ngSubmit)="onSubmit()">
+          <div class="border-b border-white/60 line-thin">
+            <input
+              name="chat"
+              [(ngModel)]="chatInput"
+              type="text"
+              [placeholder]="t.chatPlaceholder"
+              class="w-full bg-transparent py-3 text-xs md:text-sm tracking-[0.14em] uppercase placeholder:text-white/40 focus:outline-none rounded-none font-sansUltra font-extralight"
+            />
+          </div>
+          <button
+            type="submit"
+            class="mt-4 border border-white line-thin px-6 py-2 text-[10px] md:text-xs uppercase tracking-[0.24em] rounded-none bg-transparent text-white"
+          >
+            {{ t.btnFind }}
+          </button>
+        </form>
+      </aside>
+
+      <div class="md:col-span-7 md:h-[calc(100vh-7rem)] md:overflow-y-auto pr-0 md:pr-2">
+        <div
+          class="grid grid-cols-1 sm:grid-cols-2 gap-6 grid-fade"
+          [class.updating]="gridUpdating"
+        >
+          @for (p of products; track p.slug) {
+            <article class="group">
+              <div class="relative overflow-hidden">
+                <img
+                  [src]="p.image_url"
+                  [alt]="p.name"
+                  class="h-[52vh] w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                />
+                <button
+                  type="button"
+                  class="absolute bottom-0 left-0 right-0 border border-white line-thin bg-black text-white py-2 text-[10px] md:text-xs uppercase tracking-[0.22em] rounded-none"
+                >
+                  BUY
+                </button>
+              </div>
+              <div
+                class="mt-3 text-[11px] md:text-xs uppercase tracking-[0.16em] text-white/85 font-sansUltra font-extralight"
+              >
+                {{ p.brand }} — {{ formatPrice(p) }} {{ p.currency }}
+              </div>
+            </article>
+          }
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="min-h-[55vh] px-6 md:px-14 py-16 md:py-24 reveal" appReveal>
+    <h3
+      class="font-serifDisplay uppercase tracking-[0.35em] text-2xl md:text-4xl"
+    >
+      {{ t.techTitle }}
+    </h3>
+    <ul class="mt-10">
+      <li
+        class="py-5 border-b border-white/35 line-thin text-sm md:text-base uppercase tracking-[0.18em] font-sansUltra font-extralight"
+      >
+        Context Engine
+      </li>
+      <li
+        class="py-5 border-b border-white/35 line-thin text-sm md:text-base uppercase tracking-[0.18em] font-sansUltra font-extralight"
+      >
+        Zero-Filter Tech
+      </li>
+      <li
+        class="py-5 border-b border-white/35 line-thin text-sm md:text-base uppercase tracking-[0.18em] font-sansUltra font-extralight"
+      >
+        Style Intelligence
+      </li>
+    </ul>
+  </section>
+
+  <section class="min-h-[70vh] px-6 md:px-14 py-16 md:py-24 reveal" appReveal>
+    <h3
+      class="font-serifDisplay uppercase tracking-[0.35em] text-2xl md:text-4xl"
+    >
+      THE FOUNDERS
+    </h3>
+    <div class="mt-12 grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-14">
+      <article>
+        <div class="h-[48vh] border border-white/50 line-thin"></div>
+        <p class="mt-4 text-xs md:text-sm uppercase tracking-[0.2em] font-sansUltra font-extralight">
+          {{ t.founder1 }}
+        </p>
+      </article>
+      <article>
+        <div class="h-[48vh] border border-white/50 line-thin"></div>
+        <p class="mt-4 text-xs md:text-sm uppercase tracking-[0.2em] font-sansUltra font-extralight">
+          {{ t.founder2 }}
+        </p>
+      </article>
+    </div>
+  </section>
+</main>
