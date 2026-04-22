@@ -36,6 +36,10 @@ export class CatalogService {
     return this.http.post<Favorites>(`http://127.0.0.1:8000/likes/`, v1);
   }
 
+  is_liked(user_id: number, product_id: number): Observable<Favorites>{
+    return this.http.get<Favorites>(`http://127.0.0.1:8000/likes/${user_id}/${product_id}/`);
+  }
+
   remove_a_like(user_id: number, product_id: number): Observable<Favorites>{
     return this.http.delete<Favorites>(`http://127.0.0.1:8000/likes/${user_id}/${product_id}/`);
   }

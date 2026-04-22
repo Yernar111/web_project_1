@@ -36,23 +36,20 @@ export class CatalogComponent {
       }
     }
   }
-  favoriteProduct: Favorites = {id: 0, user_id: 0, product_id: 0};
-  isLiked: boolean = false;
   addFavorite(product_id: number){
-    this.favoriteProduct.user_id = Number(this.user_id);
-    this.favoriteProduct.product_id = product_id; 
-    if (!this.isLiked){
-      this.catalogservice.like_a_product(this.favoriteProduct).subscribe(data => {
-        console.log("liked:", data);
-        this.isLiked=true;
-      })
-    }
-    else{
-      this.catalogservice.remove_a_like(Number(this.user_id), product_id).subscribe(data => {
-        console.log("removed a like from:", data);
-        this.isLiked=false;
-      })
-    }
+    const favoriteProduct: Favorites = {id: 0, user_id: 0, product_id: 0};
+    favoriteProduct.user_id = Number(this.user_id);
+    favoriteProduct.product_id = product_id;
+    this.catalogservice.is_liked(Number(this.user_id), product_id).subscribe({
+      next: (data) => {
+        this.catalogservice.remove_a_like(Number(this.user_id), product_id).subscribe(data => console.log("removed a like from:", data));
+      },
+      error: (err) => {
+        if (err.status === 404) {
+          this.catalogservice.like_a_product(favoriteProduct).subscribe(data1 => console.log("liked:", data1));
+        }
+      }
+    })
   }
   openCard(id: number){
     this.router.navigate(['/product', id])
