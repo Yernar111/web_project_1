@@ -1,0 +1,44 @@
+<!-- <p>Log In</p>
+<form (ngSubmit)="logIn1()" #form="ngForm">
+    <label for="name">User name:</label><br>
+    <input type="text" name="name" [(ngModel)]="name" required><br>
+
+    <label for="password">Password:</label><br>
+    <input type="password" name="password" [(ngModel)]="password" required><br><br>
+
+    <input type="submit" value="Log In">
+</form> <br><br>
+
+@if (isError){
+    <p>Error, check if the username and password are correct.</p>
+} -->
+
+<div class="auth-page">
+  <div class="auth-card">
+    <h2>Welcome Back</h2>
+
+    <form (ngSubmit)="logIn1()" #form="ngForm">
+      
+      <div class="input-group">
+        <label>Username</label>
+        <input type="text" name="name" [(ngModel)]="name" required>
+      </div>
+
+      <div class="input-group">
+        <label>Password</label>
+        <input type="password" name="password" [(ngModel)]="password" required>
+      </div>
+
+      <button class="btn primary" type="submit">Log In</button>
+    </form>
+
+    @if (isError){
+      <p class="error">Wrong username or password</p>
+    }
+
+    <!-- <p class="switch">
+      Don’t have an account?
+      <span (click)="toSignUpPage()">Sign Up</span>
+    </p> -->
+  </div>
+</div>

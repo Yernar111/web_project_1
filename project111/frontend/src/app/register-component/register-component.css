@@ -1,0 +1,83 @@
+/* Общий фон страницы */
+.register-page {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Карточка */
+.register-card {
+  background: white;
+  padding: 40px;
+  border-radius: 16px;
+  width: 320px;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Заголовок */
+.register-card h2 {
+  margin-bottom: 10px;
+  color: #333;
+}
+
+/* Подзаголовок */
+.register-card p {
+  margin-bottom: 25px;
+  color: #777;
+}
+
+/* Контейнер кнопок */
+.buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Общий стиль кнопок */
+.btn {
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* Sign Up кнопка */
+.signup {
+  background: #667eea;
+  color: white;
+}
+
+.signup:hover {
+  background: #5a67d8;
+  transform: translateY(-2px);
+}
+
+/* Log In кнопка */
+.login {
+  background: #e2e8f0;
+  color: #333;
+}
+
+.login:hover {
+  background: #cbd5e0;
+  transform: translateY(-2px);
+}
+
+/* Анимация появления */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

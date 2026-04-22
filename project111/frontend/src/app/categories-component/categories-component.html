@@ -1,0 +1,22 @@
+<!-- <button class="category"
+    *ngFor="let i of categories1$ | async"
+    [class.active]="activeCategory_id1 == i.id"
+    (click)="categoryChange(i.id)">
+    {{ i.name }}
+</button> -->
+
+<div class="categories-container">
+  <h3 class="title">Categories</h3>
+
+  <div class="categories-list">
+    <button
+      class="category"
+      *ngFor="let i of categories1$ | async"
+      [class.active]="activeCategory_id1 == i.id"
+      (click)="categoryChange(i.id)">
+      {{ i.name }}
+    </button>
+  </div>
+</div>
+
+<app-catalog-component [activeCategory_id]="activeCategory_id1" [user_id]="user_id1"></app-catalog-component>

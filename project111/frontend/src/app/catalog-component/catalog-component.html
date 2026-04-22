@@ -1,0 +1,36 @@
+<!-- <div *ngFor="let i of products1$ | async" class="card" (click)="openCard(i.id)">
+    <img class="img" [src]="i.image_url" [alt]="i.name" height="100px" width="100px"/>
+    <div class="content">
+        <h3 class="title">{{ i.name }}</h3>
+        
+        <p class="price">{{ i.price | number }} $</p>
+        <button class="add_favorite" (click)="addFavorite(i.id)">♥</button>
+    </div>
+</div>
+
+<p class="desc">{{ i.description }}</p> -->
+
+<div class="catalog">
+  <div 
+    *ngFor="let i of products1$ | async" 
+    class="card"
+    (click)="openCard(i.id)"
+  >
+    
+    <div class="image-wrapper">
+      <img [src]="i.image_url" [alt]="i.name" />
+      
+      <button 
+        class="favorite"
+        (click)="addFavorite(i.id); $event.stopPropagation()">
+        ♥
+      </button>
+    </div>
+
+    <div class="content">
+      <h3 class="title">{{ i.name }}</h3>
+      <p class="price">{{ i.price | number }} $</p>
+    </div>
+
+  </div>
+</div>

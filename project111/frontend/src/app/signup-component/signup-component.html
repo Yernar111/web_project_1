@@ -1,0 +1,45 @@
+<!-- <p>Sign Up</p>
+
+<form (ngSubmit)="signUp1()" #form="ngForm">
+    <label for="name">Name</label><br>
+    <input type="text" name="name" [(ngModel)]="name" required><br>
+
+    <label for="password">Password</label><br>
+    <input type="password" name="password" [(ngModel)]="password" required><br>
+
+    <input type="submit" value="Sign Up">
+</form> <br><br><br>
+
+@if (isError){
+    <p>Error, check if the username and password are correct.</p>
+}
+ -->
+<div class="auth-page">
+  <div class="auth-card">
+    <h2>Create Account</h2>
+
+    <form (ngSubmit)="signUp1()" #form="ngForm">
+      
+      <div class="input-group">
+        <label>Name</label>
+        <input type="text" name="name" [(ngModel)]="name" required>
+      </div>
+
+      <div class="input-group">
+        <label>Password</label>
+        <input type="password" name="password" [(ngModel)]="password" required>
+      </div>
+
+      <button class="btn primary" type="submit">Sign Up</button>
+    </form>
+
+    @if (isError){
+      <p class="error">Invalid data. Try again.</p>
+    }
+
+    <!-- <p class="switch">
+      Already have an account?
+      <span (click)="toLogInPage()">Log In</span>
+    </p> -->
+  </div>
+</div>

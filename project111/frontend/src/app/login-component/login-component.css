@@ -1,0 +1,111 @@
+/* Фон */
+.auth-page {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #4facfe, #00f2fe);
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* Карточка */
+.auth-card {
+  background: #fff;
+  padding: 35px;
+  border-radius: 16px;
+  width: 340px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+  animation: fadeIn 0.4s ease;
+}
+
+/* Заголовок */
+.auth-card h2 {
+  margin-bottom: 20px;
+  text-align: center;
+  color: #333;
+}
+
+/* Группа input */
+.input-group {
+  margin-bottom: 15px;
+}
+
+.input-group label {
+  font-size: 14px;
+  color: #555;
+}
+
+/* Input */
+.input-group input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  transition: 0.2s;
+}
+
+.input-group input:focus {
+  border-color: #4facfe;
+  outline: none;
+  box-shadow: 0 0 5px rgba(79,172,254,0.5);
+}
+
+/* Кнопка */
+.btn {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  margin-top: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+.primary {
+  background: #4facfe;
+  color: white;
+}
+
+.primary:hover {
+  background: #3a8ee6;
+  transform: translateY(-2px);
+}
+
+/* Ошибка */
+.error {
+  margin-top: 15px;
+  color: #e53e3e;
+  text-align: center;
+  font-size: 14px;
+}
+
+/* Переключение */
+.switch {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.switch span {
+  color: #4facfe;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.switch span:hover {
+  text-decoration: underline;
+}
+
+/* Анимация */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

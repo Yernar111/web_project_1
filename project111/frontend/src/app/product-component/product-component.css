@@ -1,0 +1,107 @@
+/* Общая страница */
+.product-page {
+  padding: 40px;
+  display: flex;
+  justify-content: center;
+}
+
+/* Карточка */
+.product-card {
+  display: flex;
+  gap: 40px;
+  max-width: 900px;
+  width: 100%;
+  background: white;
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+}
+
+/* Левая часть */
+.image-section {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f8fafc;
+  border-radius: 16px;
+  padding: 20px;
+}
+
+.image-section img {
+  max-width: 100%;
+  max-height: 350px;
+  object-fit: contain;
+}
+
+/* Правая часть */
+.info-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Название */
+.title {
+  font-size: 26px;
+  margin-bottom: 15px;
+  color: #222;
+}
+
+/* Цена */
+.price {
+  font-size: 24px;
+  font-weight: bold;
+  color: #4facfe;
+  margin-bottom: 20px;
+}
+
+/* Описание */
+.description {
+  color: #555;
+  line-height: 1.5;
+  margin-bottom: 25px;
+}
+
+/* Кнопки */
+.actions {
+  display: flex;
+  gap: 15px;
+}
+
+/* Общие кнопки */
+.btn {
+  padding: 12px 18px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+/* Основная */
+.primary {
+  background: #4facfe;
+  color: white;
+}
+
+.primary:hover {
+  background: #3a8ee6;
+  transform: translateY(-2px);
+}
+
+/* Вторая */
+.secondary {
+  background: #f1f5f9;
+}
+
+.secondary:hover {
+  background: #e2e8f0;
+}
+
+/* Адаптив */
+@media (max-width: 768px) {
+  .product-card {
+    flex-direction: column;
+  }
+}

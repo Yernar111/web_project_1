@@ -1,0 +1,59 @@
+/* .category.active{
+    border: 1px red solid;
+} */
+
+ /* Контейнер */
+.categories-container {
+  padding: 20px;
+}
+
+/* Заголовок */
+.title {
+  margin-bottom: 15px;
+  color: #333;
+}
+
+/* Список категорий */
+.categories-list {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  padding-bottom: 10px;
+}
+
+/* Скрываем скролл красиво */
+.categories-list::-webkit-scrollbar {
+  height: 6px;
+}
+
+.categories-list::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 10px;
+}
+
+/* Кнопка категории */
+.category {
+  flex: 0 0 auto;
+  padding: 10px 18px;
+  border-radius: 20px;
+  border: 1px solid #ddd;
+  background: white;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+/* Hover */
+.category:hover {
+  background: #f1f5f9;
+  transform: translateY(-2px);
+}
+
+/* Активная категория */
+.category.active {
+  background: #4facfe;
+  color: white;
+  border-color: #4facfe;
+  box-shadow: 0 4px 10px rgba(79, 172, 254, 0.4);
+}

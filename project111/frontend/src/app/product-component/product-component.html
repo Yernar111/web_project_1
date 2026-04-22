@@ -1,0 +1,36 @@
+<!-- <div *ngIf="product1$ | async as product1">
+  <img class="img" [src]="product1.image_url" [alt]="product1.name" height="100px" width="100px"/>
+  <p><strong>Name:</strong> {{product1.name}} </p>
+  <p class="price">{{ product1.price | number }} $</p>
+  <p><strong>Description:</strong> {{product1.description}} </p>
+</div> -->
+
+<div *ngIf="product1$ | async as product" class="product-page">
+
+  <div class="product-card">
+
+    <!-- Левая часть (изображение) -->
+    <div class="image-section">
+      <img [src]="product.image_url" [alt]="product.name" />
+    </div>
+
+    <!-- Правая часть (информация) -->
+    <div class="info-section">
+      <h1 class="title">{{ product.name }}</h1>
+
+      <p class="price">{{ product.price | number }} $</p>
+
+      <p class="description">
+        {{ product.description }}
+      </p>
+
+      <div class="actions">
+        <button class="btn primary">Add to Cart</button>
+        <button class="btn secondary">♥ Favorite</button>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
